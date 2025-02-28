@@ -3,7 +3,7 @@ import numpy as np
 from PIL import Image
 from utils import *
 
-labels = gen_labels()
+labels = ["Organic", "Recyclable", "Non-Recyclable"]
 
 st.markdown("""
   <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; margin-top: -50px">
@@ -28,5 +28,6 @@ if opt == 'Upload image from device':
             model.load_weights("./models/modelnew.h5")
             
             prediction = model.predict(img[np.newaxis, ...])
-            category = "Organic" if prediction[0][0] < 0.5 else "Recyclable"
+            category = labels[np.argmax(prediction)]  # Selects the highest probability class
+            
             st.info(f'Hey! The uploaded image has been classified as "{category}"')
