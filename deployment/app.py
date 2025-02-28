@@ -25,7 +25,7 @@ if opt == 'Upload image from device':
         if st.button('Predict'):
             img = preprocess(image)
             model = model_arc()
-            model.load_weights("./models/modelnew.h5")
+            model.load_weights("./models/mobilenet_waste_classifier.h5")
             
             prediction = model.predict(img[np.newaxis, ...])
             category = labels[np.argmax(prediction)]  # Selects the highest probability class

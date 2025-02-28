@@ -22,7 +22,7 @@ def gen_labels():
     return labels
 
 def preprocess(image):
-    image = image.resize((224, 224), Image.ANTIALIAS)
+    image = image.resize((224, 224))  # Remove Image.ANTIALIAS
     image = np.array(image, dtype='float32') / 255.0
     return image
 
