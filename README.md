@@ -1,0 +1,1 @@
+# App to classify Recyclable/Non-Recyclable Waste using Image Recognition.
